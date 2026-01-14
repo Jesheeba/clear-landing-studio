@@ -34,7 +34,7 @@ export const Problem = () => {
         </div>
         
         <p className="mt-12 text-center text-xl text-foreground max-w-2xl mx-auto">
-          <span className="font-semibold text-accent">AI can solve these problems</span> — but only when applied practically.
+          <span className="font-semibold text-accent">AI can solve these problems</span> - but only when applied practically.
         </p>
       </div>
     </section>

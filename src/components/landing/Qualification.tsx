@@ -1,10 +1,10 @@
 import { CheckCircle2, X } from "lucide-react";
 
 const qualifications = [
-  "You already run a profitable business (₹5–15L/month)",
+  "You already run a profitable business (₹5-15L/month)",
   "You operate a service business, clinic, showroom, or training institute",
   "You feel growth is slowing due to operations, follow-ups, or team dependency",
-  "You want systems that scale — not more hustle",
+  "You want systems that scale - not more hustle",
 ];
 
 export const Qualification = () => {

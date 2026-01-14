@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Your Free AI Playbook</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Design Tokens from index.css */
+            --background: 224 71% 4%;
+            --foreground: 40 33% 98%; /* Light text for dark bg */
+            --card: 222 47% 11%;
+            --card-foreground: 40 33% 98%;
+            --primary: 40 33% 98%;
+            --primary-foreground: 222 47% 11%;
+            --muted: 222 35% 18%;
+            --muted-foreground: 40 15% 65%;
+            --accent: 45 93% 47%;
+            --accent-foreground: 0 0% 100%;
+            --border: 222 35% 18%;
+            --input: 222 35% 18%;
+            --ring: 45 93% 47%;
+            --radius: 0.75rem;
+            
+            --hero-gradient: linear-gradient(135deg, hsl(222 47% 15%) 0%, hsl(222 35% 25%) 100%);
+            --cta-gradient: linear-gradient(135deg, hsl(45 93% 47%) 0%, hsl(45 93% 47%) 100%);
+        }
+
+        * {
+            box-sizing: border-box;
+            border-width: 0;
+            border-style: solid;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            color: hsl(40, 33%, 98%); /* foreground */
+            background: var(--hero-gradient); /* Matching Hero Section */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 42rem; /* max-w-2xl */
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .card {
+            background-color: hsl(222, 47%, 11%); /* card color */
+            border: 1px solid hsl(222, 35%, 18%); /* border color */
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            margin-top: 2rem;
+        }
+
+        .title {
+            font-size: 2.25rem; /* text-4xl */
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: hsl(40, 33%, 98%); /* primary-foreground / light text */
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 1.25rem; /* text-xl */
+            color: hsl(40, 33%, 98%, 0.8); /* primary-foreground/80 */
+            margin-bottom: 2.5rem;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        input {
+            height: 3.5rem; /* h-14 */
+            width: 100%;
+            padding: 0 1.25rem;
+            background-color: hsl(40, 25%, 94%); /* secondary (light mode default usually, but we want input style from dark mode if main is dark) */
+            /* Actually, checking Landing Page inputs: they use bg-secondary. In dark mode (which hero is), secondary is hsl(222 35% 18%). Let's use that. */
+            background-color: hsl(222, 35%, 18%); 
+            
+            border: 1px solid hsl(222, 35%, 18%); /* border-border */
+            border-radius: var(--radius);
+            color: white;
+            font-size: 1.125rem; /* text-lg */
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        input::placeholder {
+            color: hsl(40, 15%, 65%); /* muted-foreground */
+        }
+
+        input:focus {
+            border-color: var(--ring); /* ring color (accent) */
+            box-shadow: 0 0 0 2px var(--ring);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 3.5rem; /* size-xl */
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 1.125rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            background: var(--cta-gradient); /* Gold Gradient */
+            color: white;
+            text-decoration: none;
+            gap: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .footer-text {
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            color: hsl(40, 15%, 65%); /* muted-foreground */
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-icon {
+            color: var(--accent); /* Gold */
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            color: #ffffff; /* White on hover for effect */
+            transform: scale(1.1);
+            filter: drop-shadow(0 0 8px rgba(255, 193, 7, 0.4));
+        }
+
+        /* Responsive tweaks */
+        @media (min-width: 640px) {
+            .title {
+                font-size: 3rem; /* sm:text-5xl */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2 class="title" style="font-family: 'Inter', sans-serif;">
+            Build a Smarter Business for 2026
+        </h2>
+        <p class="subtitle">
+            Start with clarity, systems, and practical AI.
+        </p>
+
+        <div class="card">
+            <form id="lead-form" action="#" method="POST">
+                <div class="input-group">
+                    <input type="text" name="name" placeholder="Name *" required>
+                    <input type="tel" name="whatsapp" placeholder="WhatsApp Number *" required pattern="[0-9+\-\s]{10,}" title="Please enter a valid phone number (at least 10 digits)">
+                    <input type="email" name="email" placeholder="Email *" required>
+                    <input type="url" name="website" placeholder="Website URL">
+                </div>
+                
+                <button type="submit" class="btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                    Download the Free AI Playbook
+                </button>
+                
+                <p class="footer-text">
+                    No spam. Unsubscribe anytime.
+                </p>
+            </form>
+
+            <div id="thank-you-message" style="display: none; animation: fadeUp 0.5s ease-out;">
+                <div style="width: 5rem; height: 5rem; border-radius: 9999px; background: #FFD700; box-shadow: 0 0 12px rgba(255, 215, 0, 0.6); margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; color: white;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <h3 class="title" style="font-size: 1.75rem; margin-bottom: 1rem;">Your AI Playbook Is On Its Way</h3>
+                <p style="font-size: 1.125rem; color: hsl(40, 33%, 98%, 0.9); margin-bottom: 1.5rem; line-height: 1.6;">
+                    Thank you for downloading the Practical AI Playbook for Entrepreneurs (2026).<br>
+                    You'll receive the playbook in your inbox shortly.
+                </p>
+                
+                <div style="background-color: hsl(222, 35%, 18%); border-radius: 0.75rem; padding: 1.5rem; text-align: left; margin-bottom: 2rem;">
+                    <p style="font-weight: 600; margin-bottom: 1rem; color: white;">This guide is designed to be:</p>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; color: hsl(40, 15%, 65%);">
+                        <li style="display: flex; align-items: center; gap: 0.75rem;">
+                            <div style="width: 1.25rem; height: 1.25rem; border-radius: 50%; background: #FFD700; box-shadow: 0 0 8px rgba(255, 215, 0, 0.4); display: flex; align-items: center; justify-content: center; flex-shrink: 0; padding: 2px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            </div>
+                            Read slowly
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 0.75rem;">
+                            <div style="width: 1.25rem; height: 1.25rem; border-radius: 50%; background: #FFD700; box-shadow: 0 0 8px rgba(255, 215, 0, 0.4); display: flex; align-items: center; justify-content: center; flex-shrink: 0; padding: 2px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            </div>
+                            Implemented step by step
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 0.75rem;">
+                            <div style="width: 1.25rem; height: 1.25rem; border-radius: 50%; background: #FFD700; box-shadow: 0 0 8px rgba(255, 215, 0, 0.4); display: flex; align-items: center; justify-content: center; flex-shrink: 0; padding: 2px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            </div>
+                            Used as a reference while building systems
+                        </li>
+                    </ul>
+                </div>
+
+                <p style="color: white; margin-bottom: 2rem; font-size: 1rem; font-weight: 600;">
+                    If you ever want help implementing these systems, <span style="color: #FFD700; text-shadow: 0 0 12px rgba(255, 215, 0, 0.6);">Sirah Digital is here.</span>
+                </p>
+
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/iammohamedriyaz?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" aria-label="LinkedIn" class="social-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                    </a>
+                    <a href="https://youtube.com/@riyazlive?si=KhQTPrId7bluB_8s" target="_blank" aria-label="YouTube" class="social-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.getElementById('lead-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Simulate processing delay
+                var btn = this.querySelector('button[type="submit"]');
+                var originalText = btn.innerHTML;
+                btn.innerHTML = 'Sending...';
+                btn.style.opacity = '0.7';
+                btn.disabled = true;
+
+                setTimeout(function() {
+                    document.getElementById('lead-form').style.display = 'none';
+                    document.getElementById('thank-you-message').style.display = 'block';
+                    // Optional: Scroll to top of card if needed
+                }, 1000);
+            });
+        </script>
+    </div>
+
+</body>
+</html>

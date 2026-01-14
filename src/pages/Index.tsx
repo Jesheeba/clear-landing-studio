@@ -6,12 +6,12 @@ import { WhatYouLearn } from "@/components/landing/WhatYouLearn";
 import { WhyItWorks } from "@/components/landing/WhyItWorks";
 import { About } from "@/components/landing/About";
 import { WhatHappensNext } from "@/components/landing/WhatHappensNext";
-import { FinalCTA } from "@/components/landing/FinalCTA";
 import { Footer } from "@/components/landing/Footer";
+import { StickyBottomCTA } from "@/components/landing/StickyBottomCTA";
 
 const Index = () => {
   return (
-    <main className="overflow-x-hidden">
+    <main className="overflow-x-hidden pb-[70px]">
       <Hero />
       <Qualification />
       <Problem />
@@ -20,8 +20,8 @@ const Index = () => {
       <WhyItWorks />
       <About />
       <WhatHappensNext />
-      <FinalCTA />
       <Footer />
+      <StickyBottomCTA />
     </main>
   );
 };
