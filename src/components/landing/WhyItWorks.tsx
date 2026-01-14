@@ -16,11 +16,11 @@ export const WhyItWorks = () => {
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
                 Why This Playbook Works
               </h2>
-              
+
               <p className="text-xl text-muted-foreground mb-8">
                 Most AI content talks about tools. This playbook focuses on <span className="text-accent font-semibold">systems</span>.
               </p>
-              
+
               <div className="flex items-center gap-4 mb-8 p-4 bg-secondary rounded-xl">
                 <div className="flex items-center gap-2 text-muted-foreground">
                   <Cog className="w-6 h-6" />
@@ -32,11 +32,11 @@ export const WhyItWorks = () => {
                   <span>Systems scale.</span>
                 </div>
               </div>
-              
+
               <p className="text-lg text-foreground mb-6">
                 Everything inside is built around:
               </p>
-              
+
               <ul className="space-y-3">
                 {principles.map((item, index) => (
                   <li key={index} className="flex items-center gap-3 text-lg">
@@ -46,7 +46,7 @@ export const WhyItWorks = () => {
                 ))}
               </ul>
             </div>
-            
+
             <div className="relative">
               <div className="aspect-square rounded-3xl hero-gradient p-8 flex items-center justify-center relative overflow-hidden">
                 {/* Decorative elements */}
@@ -55,10 +55,15 @@ export const WhyItWorks = () => {
                   <div className="absolute bottom-10 left-10 w-24 h-24 border border-primary-foreground rounded-full" />
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 border border-primary-foreground/50 rounded-full" />
                 </div>
-                
+
                 <div className="text-center relative z-10">
-                  <p className="text-6xl sm:text-7xl font-bold text-primary-foreground mb-2">60+</p>
-                  <p className="text-xl text-primary-foreground/80">Pages of Practical AI Systems</p>
+                  <p className="text-6xl sm:text-7xl font-bold text-primary-foreground mb-2" style={{ fontFamily: "Baskerville, 'Baskerville Old Face', 'Hoefler Text', Garamond, 'Times New Roman', serif" }}>60+</p>
+                  <p className="text-xl text-primary-foreground/80" style={{ fontFamily: "Baskerville, 'Baskerville Old Face', 'Hoefler Text', Garamond, 'Times New Roman', serif" }}>Pages of Practical AI Systems</p>
+                  <img
+                    src="/book-open.png"
+                    alt="Open Playbook"
+                    className="w-48 h-auto mt-4 mx-auto object-contain drop-shadow-2xl"
+                  />
                 </div>
               </div>
             </div>

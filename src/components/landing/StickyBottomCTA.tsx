@@ -42,7 +42,7 @@ export const StickyBottomCTA = () => {
                 <Button asChild variant="cta" size="lg" className="shadow-none">
                     <a href="/playbook-form.html">
                         <Download className="w-4 h-4 mr-2" />
-                        Download Now
+                        Get it Now
                     </a>
                 </Button>
             </div>

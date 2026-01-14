@@ -194,7 +194,7 @@
                 
                 <button type="submit" class="btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
-                    Download the Free AI Playbook
+                    Submit
                 </button>
                 
                 <p class="footer-text">
@@ -254,18 +254,66 @@
         <script>
             document.getElementById('lead-form').addEventListener('submit', function(e) {
                 e.preventDefault();
-                // Simulate processing delay
+                
+                // --- USER CONFIGURATION START ---
+                // Please paste your API key inside the quotes below
+                const API_KEY = "d54b7c38526426b0db6345a3f0e9aee0"; 
+                // --- USER CONFIGURATION END ---
+
                 var btn = this.querySelector('button[type="submit"]');
                 var originalText = btn.innerHTML;
+                
+                // Show loading state
                 btn.innerHTML = 'Sending...';
                 btn.style.opacity = '0.7';
                 btn.disabled = true;
 
-                setTimeout(function() {
-                    document.getElementById('lead-form').style.display = 'none';
-                    document.getElementById('thank-you-message').style.display = 'block';
-                    // Optional: Scroll to top of card if needed
-                }, 1000);
+                // Gather form data
+                const formData = new FormData(this);
+                const data = {
+                    name: formData.get('name'),
+                    whatsapp: formData.get('whatsapp'),
+                    email: formData.get('email'),
+                    website: formData.get('website')
+                };
+
+                fetch('https://login.sirahagents.com/api/automations/695691cb1fe08/execute', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                        // Assuming the API key is passed as a Bearer token or specific header. 
+                        // If it's a specific header name (like X-API-Key), change 'Authorization' accordingly.
+                        'Authorization': `Bearer ${API_KEY}` 
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(async response => {
+                    const text = await response.text();
+                    if (response.ok) {
+                        // Success handling
+                        document.getElementById('lead-form').style.display = 'none';
+                        document.getElementById('thank-you-message').style.display = 'block';
+                        // Scroll to top of thank you message
+                         document.getElementById('thank-you-message').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    } else {
+                        // Error handling
+                        console.error('Submission failed:', response.status, response.statusText, text);
+                        alert(`Submission failed (${response.status}): ${text || response.statusText}`);
+                        // Reset button
+                        btn.innerHTML = originalText;
+                        btn.style.opacity = '1';
+                        btn.disabled = false;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Network error. Please try again.');
+                    // Reset button
+                    btn.innerHTML = originalText;
+                    btn.style.opacity = '1';
+                    btn.disabled = false;
+                });
             });
         </script>
     </div>

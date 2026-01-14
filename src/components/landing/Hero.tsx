@@ -30,7 +30,7 @@ export const Hero = () => {
           <Button asChild variant="cta" size="xl">
             <a href="/playbook-form.html">
               <Download className="w-5 h-5 mr-2" />
-              Download the Free AI Playbook
+              Get it Now
             </a>
           </Button>
           <Button

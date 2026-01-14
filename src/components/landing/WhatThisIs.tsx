@@ -3,6 +3,9 @@ import { Check, X } from "lucide-react";
 const notThis = [
   "An AI theory book",
   "Written for tech teams",
+  "A Complex Automation Manual",
+  "Written for Developers",
+  "Hard to understand"
 ];
 
 const thisIs = [
