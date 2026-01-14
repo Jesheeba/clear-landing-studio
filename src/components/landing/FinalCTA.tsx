@@ -19,40 +19,37 @@ export const FinalCTA = () => {
     }
     
     if (!email.includes("@")) {
-      toast.error("Please enter a valid email address");
+      toast.error("Please enter a valid email");
       return;
     }
     
     setIsSubmitting(true);
-    
-    // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1500));
-    
     setIsSubmitting(false);
     setIsSubmitted(true);
-    toast.success("Success! Check your email for the playbook.");
+    toast.success("Check your email!");
   };
 
   return (
     <section id="download-form" className="hero-gradient">
-      <div className="section-container">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4">
-            Build a Smarter Business for 2026
+      <div className="section-container py-16">
+        <div className="max-w-md mx-auto text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-primary-foreground mb-3">
+            Ready to Scale Smarter?
           </h2>
-          <p className="text-xl text-primary-foreground/80 mb-10">
-            Start with clarity, systems, and practical AI.
+          <p className="text-primary-foreground/80 mb-8">
+            Get your free AI Playbook now.
           </p>
           
           {!isSubmitted ? (
-            <form onSubmit={handleSubmit} className="bg-card rounded-2xl p-8 shadow-2xl">
-              <div className="space-y-4 mb-6">
+            <form onSubmit={handleSubmit} className="bg-card rounded-2xl p-6 shadow-2xl">
+              <div className="space-y-3 mb-4">
                 <Input
                   type="text"
                   placeholder="Your Name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="h-14 text-lg px-5 bg-secondary border-border"
+                  className="h-12 bg-secondary border-border"
                   disabled={isSubmitting}
                 />
                 <Input
@@ -60,7 +57,7 @@ export const FinalCTA = () => {
                   placeholder="Your Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="h-14 text-lg px-5 bg-secondary border-border"
+                  className="h-12 bg-secondary border-border"
                   disabled={isSubmitting}
                 />
               </div>
@@ -68,38 +65,27 @@ export const FinalCTA = () => {
               <Button 
                 type="submit" 
                 variant="cta" 
-                size="xl" 
+                size="lg" 
                 className="w-full"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? (
-                  <>
-                    <Loader2 className="w-5 h-5 animate-spin" />
-                    Sending...
-                  </>
+                  <Loader2 className="w-5 h-5 animate-spin" />
                 ) : (
                   <>
                     <Download className="w-5 h-5" />
-                    Download the Free AI Playbook
+                    Get Playbook
                   </>
                 )}
               </Button>
-              
-              <p className="mt-4 text-sm text-muted-foreground">
-                No spam. Unsubscribe anytime.
-              </p>
             </form>
           ) : (
-            <div className="bg-card rounded-2xl p-10 shadow-2xl text-center">
-              <div className="w-20 h-20 rounded-full cta-gradient mx-auto mb-6 flex items-center justify-center">
-                <Check className="w-10 h-10 text-accent-foreground" />
+            <div className="bg-card rounded-2xl p-8 shadow-2xl">
+              <div className="w-16 h-16 rounded-full cta-gradient mx-auto mb-4 flex items-center justify-center">
+                <Check className="w-8 h-8 text-accent-foreground" />
               </div>
-              <h3 className="text-2xl font-bold text-foreground mb-3">
-                You're All Set!
-              </h3>
-              <p className="text-lg text-muted-foreground">
-                Check your email inbox for the AI Playbook. It should arrive within a few minutes.
-              </p>
+              <h3 className="text-xl font-bold text-foreground mb-2">Done!</h3>
+              <p className="text-muted-foreground">Check your inbox.</p>
             </div>
           )}
         </div>
