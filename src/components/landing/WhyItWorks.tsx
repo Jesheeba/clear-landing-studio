@@ -62,7 +62,7 @@ export const WhyItWorks = () => {
                   <img
                     src="/book-open.png"
                     alt="Open Playbook"
-                    className="w-48 h-auto mt-4 mx-auto object-contain drop-shadow-2xl"
+                    className="w-48 max-w-full h-auto mt-4 mx-auto object-contain drop-shadow-2xl"
                   />
                 </div>
               </div>
